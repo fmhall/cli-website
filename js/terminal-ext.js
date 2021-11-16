@@ -3,7 +3,7 @@
 extend = (term) => {
   term.currentLine = "";
   term.user = "guest";
-  term.host = "rootpc";
+  term.host = "masons-mac";
   term.cwd = "~";
   term.sep = ":";
   term._promptChar = "$";
@@ -80,7 +80,7 @@ extend = (term) => {
   }
 
   term.printLogoType = () => {
-    term.writeln(term.cols >= 40 ? LOGO_TYPE : "[Root Ventures]\r\n");
+    term.writeln(term.cols >= 40 ? LOGO_TYPE : "[Mason Hall]\r\n");
   }
 
   term.openURL = (url, newWindow = true) => {
@@ -130,7 +130,7 @@ extend = (term) => {
     preloadFiles();
     term.reset();
     term.printLogoType();
-    term.stylePrint('Welcome to the Root Ventures terminal. Seeding bold engineers!');
+    term.stylePrint('Welcome to my terminal. Have fun!');
     term.stylePrint(`Type ${colorText("help", "command")} to get started. Or type ${colorText("exit", "command")} for web version.`, false);
 
     term.user = user;

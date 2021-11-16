@@ -1,18 +1,14 @@
 # cli-website
 Who needs a website when you have a terminal.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f3bfb854-9bc6-40a7-8d4c-2cccd3850764/deploy-status)](https://app.netlify.com/sites/rootvc-cli-website/deploys)
-
-[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
-
 ## Basic Commands
   - help: list all commands
-  - whois root: learn about us
+  - whois mason: learn about me
   - whois [partner]: learn about a partner
-  - tldr: list all portfolio companies
-  - tldr: [company_name]": learn about a portfolio company
-  - email: reach out to us
-  - twitter: twitter accounts
+  - cv: list all cv companies
+  - cv: [company_name]": learn about a cv company
+  - email: reach out to me
+  - twitter: twitter account
   - instagram: instagram account
   - git: this repo
   - github: all repos
@@ -74,20 +70,4 @@ Who needs a website when you have a terminal.
 
 Missing a favorite one? Make a PR!
 
-## Portfolio CLIs
-Future project: get the Hello Worlds working for every portfolio company with a CLI or npm/pypi/cargo package
- - esper
- - great_expectations (alias: ge)
- - meroxa
- - okteto
- - particle
- - privacy_dynamics (alias: privacy)
- - zed
-
-Live at: [https://root.vc](https://root.vc).
-
-Special thanks to [Jerry Neumann](https://www.linkedin.com/in/jerryneumann/) at [Neu Venture Capital](https://neuvc.com/) for the inspiration for this website concept.
-
-Thanks to the team at [divshot](https://www.divshot.com) for the awesome and hilarious [Geocities Bootstrap Theme](https://github.com/divshot/geo-bootstrap).
-
-_aut viam inveniam aut faciam_
+Live at: [https://masonhall.tech](https://masonhall.tech).

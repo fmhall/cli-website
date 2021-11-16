@@ -1,4 +1,4 @@
-const whoisRoot = "Root Ventures is a hard tech seed fund in San Francisco with $150M AUM. We are engineers leading the first venture rounds for technical founders solving hard problems. Our typical check size is $1-2M. We don't mind leading, co-leading, or following. We aim to be your best partner and the investor who best understands your product and your technology. With 2/3 of our fund in reserve, we also want to be your longest term partner, investing in every round, and bridging between rounds when we have to. Try %whois% and one of avidan, kane, chrissy, lee, emily, or laelah to learn more about our team.";
+const whoisRoot = "Engineer and investor @ a16z crypto. Previously engineer @bloXrouteLabs, @Consensys. NYC Based. Enjoys code and chess.";
 
 const commands = {
   help: function() {
@@ -25,8 +25,8 @@ const commands = {
     const people = Object.keys(team);
 
     if (!name) {
-      term.stylePrint("%whois%: Learn about the firm, or a partner - usage:\r\n");
-      term.stylePrint("%whois% root");
+      term.stylePrint("%whois%: Learn about me (and maybe others at some point) - usage:\r\n");
+      term.stylePrint("%whois% mason");
       for (p of people) {
         term.stylePrint(`%whois% ${p}`);
       }
@@ -37,7 +37,7 @@ const commands = {
     } else if (Object.keys(team).includes(name)) {
       const person = team[name];
       term.printArt(name);
-      term.stylePrint(`\r\n${person["name"]}, ${person["title"]} - ${name}@root.vc`);
+      term.stylePrint(`\r\n${person["name"]}, ${person["title"]} - ${name}hall@gmail.com`);
       term.stylePrint(`${person["linkedin"]}\r\n`);
       term.stylePrint(person["description"]);
     } else {
@@ -49,32 +49,32 @@ const commands = {
     }
   },
 
-  tldr: function(args) {
+  cv: function(args) {
     const name = (args[0] || "");
     if (!name) {
-      const companies = Object.keys(portfolio);
-      term.stylePrint("%tldr%: Learn about a portfolio company - usage:\r\n");
+      const companies = Object.keys(cv);
+      term.stylePrint("%cv%: Learn about a cv company - usage:\r\n");
       for (c of companies.sort()) {
-        const data = portfolio[c];
+        const data = cv[c];
         const tabs = c.length > 10 ? "\t" : "\t\t";
         const sep = term.cols >= 76 ? tabs : "\r\n";
-        term.stylePrint(`%tldr% ${c}${sep}${data["url"]}`);
+        term.stylePrint(`%cv% ${c}${sep}${data["url"]}`);
         if (term.cols < 76 && c != companies[companies.length - 1]) {
           term.writeln("");
         }
       }
-    } else if (!portfolio[name]) {
-      term.stylePrint(`Portfolio company ${name} not found. Should we talk to them? Email us: hello@root.vc`);
+    } else if (!cv[name]) {
+      term.stylePrint(`cv company ${name} not found. Should I talk to them? Email me: mhall@a16z.com`);
     } else {
-      const company = portfolio[name];
+      const company = cv[name];
       term.cols >= 60 ? term.printArt(name) : term.writeln("");
       term.stylePrint(company["name"]);
       term.stylePrint(company["url"]);
-      if (company["memo"]) {
-        term.stylePrint(`Investment Memo: ${company["memo"]}`);
-      }
       term.stylePrint("");
       term.stylePrint(company["description"]);
+      if (company["contribution"]) {
+        term.stylePrint(`How I contributed:` + "\r\n" + `${company["contribution"]}`);
+      }
       if (company["demo"]) {
         term.stylePrint(`Try it with command: %${name}%`);
       }
@@ -82,7 +82,7 @@ const commands = {
   },
 
   git: function() {
-    term.displayURL("https://github.com/rootvc/cli-website");
+    term.displayURL("https://github.com/fmhall/cli-website");
   },
 
   test: function() {
@@ -94,16 +94,23 @@ const commands = {
   },
 
   github: function() {
-    term.displayURL("https://github.com/rootvc");
+    term.displayURL("https://github.com/fmhall");
   },
 
   twitter: function() {
-    term.displayURL("https://twitter.com/rootvc");
-    term.displayURL("https://twitter.com/machinepix");
+    term.displayURL("https://twitter.com/0xMasonH");
+  },
+
+  telegram: function() {
+    term.stylePrint("@fmhall");
+  },
+
+  tg: function() {
+    term.command("telegram");
   },
 
   instagram: function() {
-    term.displayURL("https://instagram.com/machinepix/");
+    term.displayURL("https://instagram.com/fmhall7/");
   },
 
   insta: function() {
@@ -179,30 +186,14 @@ const commands = {
           term.stylePrint(`No such directory: ${dir}`);
         }
         break;
-      case "../home/avidan":
-      case "../home/kane":
-      case "../home/chrissy":
-      case "../home/lee":
-      case "../home/emily":
-      case "../home/laelah":
+      case "../home/mason":
         if (term.cwd == "~" || term.cwd == "bin") {
           term.command(`cd ${dir.split("/")[2]}`);
         } else {
           term.stylePrint(`No such directory: ${dir}`);
         }
         break;
-      case "/home/avidan":
-      case "/home/kane":
-      case "/home/chrissy":
-      case "/home/lee":
-      case "/home/emily":
-      case "/home/laelah":
-      case "avidan":
-      case "kane":
-      case "chrissy":
-      case "lee":
-      case "emily":
-      case "laelah":
+      case "/home/mason":
         term.stylePrint(`You do not have permission to access this directory`);
         break;
       case "/bin":
@@ -274,15 +265,10 @@ const commands = {
         term.stylePrint("Directory: /home/guest  Shell: /bin/zsh");
         break;
       case 'root':
-        term.stylePrint("Login: root             Name: That's Us!");
+        term.stylePrint("Login: root             Name: That's Me!");
         term.stylePrint("Directory: /home/root   Shell: /bin/zsh");
         break;
-      case 'avidan':
-      case 'kane':
-      case 'chrissy':
-      case 'lee':
-      case 'emily':
-      case 'laelah':
+      case 'mason':
         term.stylePrint(`Login: ${user}   Name: ${team[user]["name"]}`);
         term.stylePrint(`Directory: /home/${user}   Shell: /bin/zsh`);
         break;
@@ -302,23 +288,8 @@ const commands = {
       case 'root':
         term.stylePrint("wheel investors engineers hardtech firms");
         break;
-      case 'avidan':
-        term.stylePrint("wheel investors engineers managingpartner handypersons tinkers agtech foodtech foodies coffeesnobs");
-        break;
-      case 'kane':
-        term.stylePrint("wheel investors engineers partners tinkers mcad motorcyclists gearheads machinepix sportshooters gamers");
-        break;
-      case 'chrissy':
-        term.stylePrint("wheel investors engineers partners electrical manufacturing ecad wearables healthtech gearheads automotive sportshooters");
-        break;
-      case 'lee':
-        term.stylePrint("wheel investors engineers partners software devtools data ai+ml gamers winesnobs");
-        break;
-      case 'emily':
-        term.stylePrint("wheel investors engineers principals mechanical space automotive winesnobs");
-        break;
-      case 'laelah':
-        term.stylePrint("wheel admin operations miracleworkers gamers");
+      case 'mason':
+        term.stylePrint("wheel investors engineers handypersons tinkers coffeesnobs");
         break;
       default:
         term.stylePrint(user ? `%groups%: ${user}: no such user` : "usage: %groups% [user]");
@@ -379,7 +350,7 @@ const commands = {
   },
 
   pine: function() {
-    term.openURL("mailto:hello@root.vc");
+    term.openURL("mailto:mhall@a16z.com");
   },
 
   curl: function(args) {
@@ -423,9 +394,8 @@ const commands = {
   },
 
   locate: function() {
-    term.stylePrint("Root Ventures");
-    term.stylePrint("2670 Harrison St");
-    term.stylePrint("San Francisco, CA 94110");
+    term.stylePrint("Mason Hall");
+    term.stylePrint("New York City, New York");
   },
 
   history: function() {
@@ -516,11 +486,11 @@ const commands = {
   },
 
   man: function(args) {
-    term.command(`tldr ${args}`);
+    term.command(`cv ${args}`);
   },
 
   woman: function(args) {
-    term.command(`tldr ${args}`);
+    term.command(`cv ${args}`);
   },
 
   ping: function() {
@@ -590,7 +560,7 @@ const commands = {
 }
 
 // Add commands for company demos
-for (kv of Object.entries(portfolio)) {
+for (kv of Object.entries(cv)) {
   const key = kv[0];
   const val = kv[1];
 

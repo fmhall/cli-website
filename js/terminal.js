@@ -100,8 +100,8 @@ function runRootTerminal(term) {
             autocompleteArgs = _filesHere().filter((f) => f.startsWith(rest));
           } else if (["whois", "finger", "groups"].includes(cmd)) {
             autocompleteArgs = Object.keys(team).filter((f) => f.startsWith(rest));
-          } else if (["man", "woman", "tldr"].includes(cmd)) {
-            autocompleteArgs = Object.keys(portfolio).filter((f) => f.startsWith(rest));
+          } else if (["man", "woman", "cv"].includes(cmd)) {
+            autocompleteArgs = Object.keys(cv).filter((f) => f.startsWith(rest));
           } else if (["cd"].includes(cmd)) {
             autocompleteArgs = _filesHere().filter((dir) => dir.startsWith(rest) && !_DIRS[term.cwd].includes(dir));
           }

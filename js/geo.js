@@ -4,45 +4,45 @@ function buildGeoPage() {
     const whois = document.getElementById("whois");
     whois.innerHTML = whoisRoot.split(" Try")[0];
 
-    const portfolioTable = document.getElementById("portfolio");
-    for (p in portfolio) {
-        const row = portfolioTable.insertRow(-1);
+    const cvTable = document.getElementById("cv");
+    for (p in cv) {
+        const row = cvTable.insertRow(-1);
         const logoCell = row.insertCell();
         const descriptionCell = row.insertCell();
         const urlCell = row.insertCell();
 
-        logoCell.setAttribute("class", "portfolio-photo");
-        descriptionCell.setAttribute("class", "portfolio-description");
+        logoCell.setAttribute("class", "cv-photo");
+        descriptionCell.setAttribute("class", "cv-description");
 
         // <img> of company logo
         const logoImgTag = document.createElement("img");
         logoImgTag.setAttribute("src", `images/${p}.jpg`);
-        logoImgTag.setAttribute("alt", `${portfolio[p].name}`);
+        logoImgTag.setAttribute("alt", `${cv[p].name}`);
 
-        if (portfolio[p].url != "(inactive)") {
+        if (cv[p].url != "(inactive)") {
             // add logo w company link to table
             const logoLinkImgTag = document.createElement("a");
-            logoLinkImgTag.setAttribute("href", portfolio[p].url);
+            logoLinkImgTag.setAttribute("href", cv[p].url);
             logoLinkImgTag.setAttribute("target", `_blank`);
-            logoLinkImgTag.setAttribute("alt", `${portfolio[p].name}`);
+            logoLinkImgTag.setAttribute("alt", `${cv[p].name}`);
             logoLinkImgTag.appendChild(logoImgTag);
             logoCell.appendChild(logoLinkImgTag);
 
             // add company URL to table
             const urlATag = document.createElement("a");
-            urlATag.setAttribute("href", portfolio[p].url);
-            urlATag.setAttribute("alt", `${portfolio[p].name}`);
+            urlATag.setAttribute("href", cv[p].url);
+            urlATag.setAttribute("alt", `${cv[p].name}`);
             urlATag.setAttribute("target", "_blank");
-            urlATag.innerHTML = portfolio[p].url;
+            urlATag.innerHTML = cv[p].url;
             urlCell.appendChild(urlATag);            
         } else { // inactive company doesn't have links
             logoCell.appendChild(logoImgTag);
 
-            urlCell.innerHTML = portfolio[p].url;
+            urlCell.innerHTML = cv[p].url;
         }
         
         // add company description to table
-        descriptionCell.innerHTML = portfolio[p].description;
+        descriptionCell.innerHTML = cv[p].description;
     }
 
     const teamTable = document.getElementById("team");
