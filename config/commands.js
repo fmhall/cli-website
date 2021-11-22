@@ -1,4 +1,4 @@
-const whoisRoot = "Engineer and investor @ a16z crypto. Previously engineer @bloXrouteLabs, @Consensys. NYC Based. Enjoys code and chess.";
+const whoisRoot = "Engineer and investor @ a16z crypto. Previously engineer @bloXrouteLabs, @Consensys. NYC Based.";
 
 const commands = {
   help: function() {
