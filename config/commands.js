@@ -27,12 +27,9 @@ const commands = {
     if (!name) {
       term.stylePrint("%whois%: Learn about me (and maybe others at some point) - usage:\r\n");
       term.stylePrint("%whois% mason");
-      for (p of people) {
-        term.stylePrint(`%whois% ${p}`);
-      }
     } else if (name == "root") {
       const description = whoisRoot;
-      term.printArt("rootvc-square");
+      term.printArt("mason");
       term.stylePrint(description);
     } else if (Object.keys(team).includes(name)) {
       const person = team[name];
