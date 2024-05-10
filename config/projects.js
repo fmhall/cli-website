@@ -1,10 +1,18 @@
-const cv = {
+const projects = {
   a16z: {
     name: "a16z",
     url: "https://a16z.com/crypto/",
     description: "Backing bold entrepreneurs who are building crypto companies and protocols.",
     contribution: null,
     demo: "https://a16z.com/portfolio/",
+  },
+  
+  proofofmerge: {
+    name: "Proof of Merge",
+    url: "https://www.proofofmerge.xyz/",
+    description: "Proof of Merge is a fully on-chain, non-transferable, and dynamic NFT that will change throughout The Merge. We detect The Merge on-chain by checking if the DIFFICULTY opcode returns 0 according to EIP3675. During The Merge, the current Ethereum execution layer will merge into the Beacon chain, and Ethereum will transition from Proof of Work to Proof of Stake.",
+    contribution: null,
+    demo: "https://opensea.io/collection/proof-of-merge",
   },
 
   bloxroute: {

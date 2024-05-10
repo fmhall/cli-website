@@ -3,6 +3,8 @@ const help = {
   "%whois% root": "learn about me",
   "%cv%": "list all cv companies",
   "%cv% [company_name]": "learn about a cv company",
+  "%projects%": "list all projects I've worked on",
+  "%projects% [project_name]": "learn about a side project",
   "%email%": "reach out to me",
   "%twitter%": "twitter account",
   "%instagram%": "instagram account",

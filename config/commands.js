@@ -78,6 +78,38 @@ const commands = {
     }
   },
 
+  projects: function(args) {
+    const name = (args[0] || "");
+    if (!name) {
+      const projects = Object.keys(projects);
+      term.stylePrint("%cv%: Learn about a side project - usage:\r\n");
+      for (p of projects.sort()) {
+        const data = projects[p];
+        const tabs = p.length > 10 ? "\t" : "\t\t";
+        const sep = term.cols >= 76 ? tabs : "\r\n";
+        term.stylePrint(`%project% ${p}${sep}${data["url"]}`);
+        if (term.cols < 76 && p != projects[projects.length - 1]) {
+          term.writeln("");
+        }
+      }
+    } else if (!projects[name]) {
+      term.stylePrint(`project ${name} not found. Should I talk to them? Email me: mhall@a16z.com`);
+    } else {
+      const project = projects[name];
+      term.cols >= 60 ? term.printArt(name) : term.writeln("");
+      term.stylePrint(project["name"]);
+      term.stylePrint(project["url"]);
+      term.stylePrint("");
+      term.stylePrint(project["description"]);
+      if (project["contribution"]) {
+        term.stylePrint(`How I contributed:` + "\r\n" + `${project["contribution"]}`);
+      }
+      if (project["demo"]) {
+        term.stylePrint(`Try it with command: %${name}%`);
+      }
+    }
+  },
+
   git: function() {
     term.displayURL("https://github.com/fmhall/cli-website");
   },
