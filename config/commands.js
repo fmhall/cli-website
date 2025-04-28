@@ -1,4 +1,4 @@
-const whoisRoot = "Engineer and investor @ a16z crypto. Previously engineer @bloXrouteLabs, @Consensys. NYC Based.";
+const whoisRoot = "Engineering and Strategy @ Merit Systems. Previously partner @ a16z crypto, engineer @bloXrouteLabs, @Consensys. NYC Based.";
 
 const commands = {
   help: function() {
@@ -61,7 +61,7 @@ const commands = {
         }
       }
     } else if (!cv[name]) {
-      term.stylePrint(`cv company ${name} not found. Should I talk to them? Email me: mhall@a16z.com`);
+      term.stylePrint(`cv company ${name} not found. Should I talk to them? Email me: mason@merit.systems`);
     } else {
       const company = cv[name];
       term.cols >= 60 ? term.printArt(name) : term.writeln("");
@@ -83,7 +83,7 @@ const commands = {
   },
 
   test: function() {
-    term.openURL("https://gfycat.com/ifr/WhiteBountifulAfricangroundhornbill");
+    term.openURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
   },
 
   email: function() {
@@ -224,7 +224,7 @@ const commands = {
       term.stylePrint(`No such file: ${filename}`);
     }
     if (filename == "id_rsa") {
-      term.openURL("https://gfycat.com/ifr/WhiteBountifulAfricangroundhornbill");
+      term.openURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
   },
 
@@ -233,7 +233,7 @@ const commands = {
     const filename = args[1];
 
     if (filename == "id_rsa") {
-      term.openURL("https://gfycat.com/ifr/WhiteBountifulAfricangroundhornbill");
+      term.openURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
     
     if (!q || !filename) {
@@ -347,7 +347,7 @@ const commands = {
   },
 
   pine: function() {
-    term.openURL("mailto:mhall@a16z.com");
+    term.openURL("mailto:mason@merit.systems");
   },
 
   curl: function(args) {

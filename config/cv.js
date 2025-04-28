@@ -1,9 +1,18 @@
 const cv = {
+  merit: {
+    name: "Merit Systems",
+    url: "https://merit.systems/",
+    description: "Building a new economy for Open Source Software.",
+    contribution: "Engineering and Strategy.",
+    demo: "https://merit.systems/",
+  },
+
+  
   a16z: {
     name: "a16z",
     url: "https://a16z.com/crypto/",
     description: "Backing bold entrepreneurs who are building crypto companies and protocols.",
-    contribution: null,
+    contribution: "Invested in projects like Optimism, Aptos, and more. Focused on infrastructure, wallets, and interop. Led development of a number of tools, including farcaster-py, the first Farcaster SDK.",
     demo: "https://a16z.com/portfolio/",
   },
 
