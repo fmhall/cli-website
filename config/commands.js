@@ -53,9 +53,24 @@ const commands = {
       term.stylePrint("%cv%: Learn about a cv company - usage:\r\n");
       for (c of companies.sort()) {
         const data = cv[c];
-        const tabs = c.length > 10 ? "\t" : "\t\t";
-        const sep = term.cols >= 76 ? tabs : "\r\n";
-        term.stylePrint(`%cv% ${c}${sep}${data["url"]}`);
+        const url = data["url"];
+
+        // Skip if no URL
+        if (!url) continue;
+
+        const prefix = `%cv% ${c}`;
+        if (term.cols >= 76) { // Wide screen
+          const tabs = c.length > 10 ? "\t" : "\t\t";
+          // Print the prefix part, then display the URL.
+          // This will likely put the URL on the next line if displayURL adds its own newline.
+          term.stylePrint(`${prefix}${tabs}`);
+          term.displayURL(url);
+        } else { // Narrow screen
+          term.stylePrint(`${prefix}\r\n`); // Print "%cv% name" and then a newline
+          term.displayURL(url);              // Print clickable URL on its own line
+        }
+
+        // Maintain original spacing for narrow terminals between entries
         if (term.cols < 76 && c != companies[companies.length - 1]) {
           term.writeln("");
         }
@@ -66,8 +81,10 @@ const commands = {
       const company = cv[name];
       term.cols >= 60 ? term.printArt(name) : term.writeln("");
       term.stylePrint(company["name"]);
-      term.stylePrint(company["url"]);
-      term.stylePrint("");
+      if (company["url"]) {
+        term.displayURL(company["url"]); // Use displayURL for hyperlinking
+      }
+      term.stylePrint(""); // Ensures a blank line before description
       term.stylePrint(company["description"]);
       if (company["contribution"]) {
         term.stylePrint(`How I contributed:` + "\r\n" + `${company["contribution"]}`);
