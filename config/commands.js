@@ -1,4 +1,4 @@
-const whoisRoot = "Engineering and Strategy @ Merit Systems. Previously partner @ a16z crypto, engineer @bloXrouteLabs, @Consensys. NYC Based.";
+const whoisMason = "Engineering and Strategy @ Merit Systems. Previously partner @ a16z crypto, engineer @bloXrouteLabs, @Consensys. NYC Based.";
 
 const commands = {
   help: function() {
@@ -27,8 +27,8 @@ const commands = {
     if (!name) {
       term.stylePrint("%whois%: Learn about me (and maybe others at some point) - usage:\r\n");
       term.stylePrint("%whois% mason");
-    } else if (name == "root") {
-      const description = whoisRoot;
+    } else if (name == "mason") {
+      const description = whoisMason;
       term.printArt("mason");
       term.stylePrint(description);
     } else if (Object.keys(team).includes(name)) {
@@ -39,8 +39,9 @@ const commands = {
       term.stylePrint(person["description"]);
     } else {
       term.stylePrint(`User ${name || ''} not found. Try:\r\n`);
-      term.stylePrint("%whois% root");
-      for (p of people) {
+      term.stylePrint("%whois% mason");
+      for (const p of people) {
+        if (p === "mason") continue;
         term.stylePrint(`%whois% ${p}`);
       }
     }
