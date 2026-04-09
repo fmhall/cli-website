@@ -2,8 +2,8 @@ const cv = {
   merit: {
     name: "Merit Systems",
     url: "https://merit.systems/",
-    description: "Building a new economy for Open Source Software.",
-    contribution: "Engineering and Strategy.",
+    description: "Building tools for Open Agentic Commerce",
+    contribution: "Engineering and leading strategy.",
     demo: "https://merit.systems/",
   },
 
