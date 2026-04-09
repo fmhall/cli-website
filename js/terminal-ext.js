@@ -112,6 +112,12 @@ extend = (term) => {
   }
 
   term.resizeListener = () => {
+    const prevCols = term.cols;
+    const prevRows = term.rows;
+    fitAddon.fit();
+    if (term.cols === prevCols && term.rows === prevRows) {
+      return;
+    }
     term._initialized = false;
     term.init(term.user, true);
     term.runDeepLink();
